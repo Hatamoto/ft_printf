@@ -1,35 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   libftprintf.h                                      :+:      :+:    :+:   */
+/*   ft_toupper.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mburakow <mburakow@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/13 14:46:00 by mburakow          #+#    #+#             */
-/*   Updated: 2023/11/13 19:01:31 by mburakow         ###   ########.fr       */
+/*   Created: 2023/10/24 14:35:02 by mburakow          #+#    #+#             */
+/*   Updated: 2023/11/03 14:00:43 by mburakow         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef LIBFTPRINTF_H
-# define LIBFTPRINTF_H
-
-#include <stdarg.h>
-
-typedef struct s_print
+int	ft_toupper(int c)
 {
-	va_list	args;
-	int 	wdt;
-	int		prc;
-	int		zero;
-	int		pnt;
-	int		dash;
-	int		tl;
-	int		sign;
-	int		is_zero;
-	int		perc;
-	int		spc;
-}	t_print;
-
-int ft_printf(const char *formstr, ...);
-
-#endif
+	if (c >= 97 && c <= 122)
+		return (c - 32);
+	return (c);
+}

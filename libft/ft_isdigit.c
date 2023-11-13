@@ -1,35 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   libftprintf.h                                      :+:      :+:    :+:   */
+/*   ft_isdigit.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mburakow <mburakow@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/13 14:46:00 by mburakow          #+#    #+#             */
-/*   Updated: 2023/11/13 19:01:31 by mburakow         ###   ########.fr       */
+/*   Created: 2023/10/24 09:26:04 by mburakow          #+#    #+#             */
+/*   Updated: 2023/11/02 11:41:04 by mburakow         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef LIBFTPRINTF_H
-# define LIBFTPRINTF_H
-
-#include <stdarg.h>
-
-typedef struct s_print
+int	ft_isdigit(int c)
 {
-	va_list	args;
-	int 	wdt;
-	int		prc;
-	int		zero;
-	int		pnt;
-	int		dash;
-	int		tl;
-	int		sign;
-	int		is_zero;
-	int		perc;
-	int		spc;
-}	t_print;
-
-int ft_printf(const char *formstr, ...);
-
-#endif
+	if (c >= 48 && c <= 57)
+		return (1);
+	return (0);
+}

@@ -6,13 +6,18 @@
 /*   By: mburakow <mburakow@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/13 15:30:18 by mburakow          #+#    #+#             */
-/*   Updated: 2023/11/13 15:45:18 by mburakow         ###   ########.fr       */
+/*   Updated: 2023/11/13 19:04:13 by mburakow         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <stdlib.h>
+#include <unistd.h>
+#include "libft.h"
 #include "ft_printf.h"
+// Remove later:
+#include <stdio.h>
 
-t_print	*ft_initialise_tab(t_print *tab)
+static t_print	*ft_init_tab(t_print *tab)
 {
 	tab->wdt = 0;
 	tab->prc = 0;
@@ -27,14 +32,50 @@ t_print	*ft_initialise_tab(t_print *tab)
 	return (tab);
 }
 
-int ft_printf(const char *format, ...)
+static int	ft_eval_formstr(t_print *tab, const char *formstr, int i)
 {
+	int		retval;
+	char	*fspecs;
+
+	retval = 0;
+	fspecs = "udcsupxX%";
+	tab->spc = 1;
+	while (!ft_strchr(fspecs, formstr[i]))
+	{
+		// Here go the tags
+		i++;
+	}
+	if (formstr[i] == 's')
+		printf("<str>");
+	if (formstr[i] == 'd')
+		printf("<int>");
+	if (formstr[i] == 'i')
+		printf("<int>");
+	return (retval);
+}
+
+int ft_printf(const char *formstr, ...)
+{
+	int		i;
+	int		retval;
 	t_print	*tab;
 
 	tab = (t_print *)malloc(sizeof(t_print));
 	if (!tab)
 		return (-1);
-	ft_intialize_tab(tab);
+	ft_init_tab(tab);
+	va_start(tab->args, formstr);
+	i = -1;
+	retval = 0;
+	while (formstr[i++])
+	{
+		if (formstr[i] == '%')
+			i = ft_eval_formstr(tab, formstr, i + 1);
+		else
+			retval += write(1, &formstr[i], 1);
+	}
+	va_end(tab->args);
+	retval += tab->tl;
+	free (tab);
+	return (retval);
 }
-
-

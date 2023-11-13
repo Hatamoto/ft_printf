@@ -1,35 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   libftprintf.h                                      :+:      :+:    :+:   */
+/*   ft_isascii.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mburakow <mburakow@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/13 14:46:00 by mburakow          #+#    #+#             */
-/*   Updated: 2023/11/13 19:01:31 by mburakow         ###   ########.fr       */
+/*   Created: 2023/10/24 09:40:33 by mburakow          #+#    #+#             */
+/*   Updated: 2023/11/02 11:34:37 by mburakow         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef LIBFTPRINTF_H
-# define LIBFTPRINTF_H
-
-#include <stdarg.h>
-
-typedef struct s_print
+int	ft_isascii(int c)
 {
-	va_list	args;
-	int 	wdt;
-	int		prc;
-	int		zero;
-	int		pnt;
-	int		dash;
-	int		tl;
-	int		sign;
-	int		is_zero;
-	int		perc;
-	int		spc;
-}	t_print;
-
-int ft_printf(const char *formstr, ...);
-
-#endif
+	if (c >= 0 && c <= 127)
+		return (1);
+	return (0);
+}

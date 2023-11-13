@@ -1,35 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   libftprintf.h                                      :+:      :+:    :+:   */
+/*   ft_strrchr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mburakow <mburakow@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/13 14:46:00 by mburakow          #+#    #+#             */
-/*   Updated: 2023/11/13 19:01:31 by mburakow         ###   ########.fr       */
+/*   Created: 2023/10/24 15:01:23 by mburakow          #+#    #+#             */
+/*   Updated: 2023/11/01 18:20:14 by mburakow         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef LIBFTPRINTF_H
-# define LIBFTPRINTF_H
+#include <stddef.h>
 
-#include <stdarg.h>
-
-typedef struct s_print
+char	*ft_strrchr(const char *s, int c)
 {
-	va_list	args;
-	int 	wdt;
-	int		prc;
-	int		zero;
-	int		pnt;
-	int		dash;
-	int		tl;
-	int		sign;
-	int		is_zero;
-	int		perc;
-	int		spc;
-}	t_print;
+	char	*ptr;
 
-int ft_printf(const char *formstr, ...);
-
-#endif
+	ptr = NULL;
+	while (*s != '\0')
+	{
+		if (*s == (unsigned char)c)
+			ptr = (char *)s;
+		s++;
+	}
+	if ((unsigned char)c == '\0')
+		return ((char *)s);
+	return (ptr);
+}

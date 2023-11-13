@@ -1,35 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   libftprintf.h                                      :+:      :+:    :+:   */
+/*   ft_memset.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mburakow <mburakow@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/13 14:46:00 by mburakow          #+#    #+#             */
-/*   Updated: 2023/11/13 19:01:31 by mburakow         ###   ########.fr       */
+/*   Created: 2023/10/24 10:31:10 by mburakow          #+#    #+#             */
+/*   Updated: 2023/11/09 20:03:29 by mburakow         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef LIBFTPRINTF_H
-# define LIBFTPRINTF_H
+#include "libft.h"
 
-#include <stdarg.h>
-
-typedef struct s_print
+void	*ft_memset(void *b, int c, size_t len)
 {
-	va_list	args;
-	int 	wdt;
-	int		prc;
-	int		zero;
-	int		pnt;
-	int		dash;
-	int		tl;
-	int		sign;
-	int		is_zero;
-	int		perc;
-	int		spc;
-}	t_print;
+	size_t			i;
+	unsigned char	*mem;
+	unsigned char	d;
 
-int ft_printf(const char *formstr, ...);
-
-#endif
+	i = 0;
+	d = (unsigned char)c;
+	mem = (unsigned char *)b;
+	while (i < len)
+	{
+		mem[i] = d;
+		i++;
+	}
+	return (b);
+}

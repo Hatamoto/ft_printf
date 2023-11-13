@@ -1,35 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   libftprintf.h                                      :+:      :+:    :+:   */
+/*   ft_strmapi.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mburakow <mburakow@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/13 14:46:00 by mburakow          #+#    #+#             */
-/*   Updated: 2023/11/13 19:01:31 by mburakow         ###   ########.fr       */
+/*   Created: 2023/10/26 15:49:12 by mburakow          #+#    #+#             */
+/*   Updated: 2023/11/06 16:49:43 by mburakow         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef LIBFTPRINTF_H
-# define LIBFTPRINTF_H
+#include <stdlib.h>
+#include "libft.h"
 
-#include <stdarg.h>
-
-typedef struct s_print
+char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 {
-	va_list	args;
-	int 	wdt;
-	int		prc;
-	int		zero;
-	int		pnt;
-	int		dash;
-	int		tl;
-	int		sign;
-	int		is_zero;
-	int		perc;
-	int		spc;
-}	t_print;
+	size_t			len;
+	char			*t;
+	unsigned int	i;
 
-int ft_printf(const char *formstr, ...);
-
-#endif
+	if (!s || !*f)
+		return (NULL);
+	len = ft_strlen((char *)s);
+	t = (char *)malloc(sizeof(char) * len + 1);
+	if (t == NULL)
+		return (NULL);
+	t[len] = '\0';
+	i = 0;
+	while (s[i])
+	{
+		t[i] = (*f)(i, s[i]);
+		i++;
+	}
+	return (t);
+}

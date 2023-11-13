@@ -1,35 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   libftprintf.h                                      :+:      :+:    :+:   */
+/*   ft_memcpy.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mburakow <mburakow@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/13 14:46:00 by mburakow          #+#    #+#             */
-/*   Updated: 2023/11/13 19:01:31 by mburakow         ###   ########.fr       */
+/*   Created: 2023/10/24 11:08:02 by mburakow          #+#    #+#             */
+/*   Updated: 2023/11/02 15:34:43 by mburakow         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef LIBFTPRINTF_H
-# define LIBFTPRINTF_H
+#include <stddef.h>
 
-#include <stdarg.h>
-
-typedef struct s_print
+void	*ft_memcpy(void *dst, const void *src, size_t n)
 {
-	va_list	args;
-	int 	wdt;
-	int		prc;
-	int		zero;
-	int		pnt;
-	int		dash;
-	int		tl;
-	int		sign;
-	int		is_zero;
-	int		perc;
-	int		spc;
-}	t_print;
+	char	*tdst;
+	char	*tsrc;
+	size_t	i;
 
-int ft_printf(const char *formstr, ...);
-
-#endif
+	if (dst == NULL && src == NULL)
+		return (NULL);
+	tdst = (char *)dst;
+	tsrc = (char *)src;
+	i = 0;
+	while (i < n)
+	{
+		tdst[i] = tsrc[i];
+		i++;
+	}
+	return (dst);
+}
