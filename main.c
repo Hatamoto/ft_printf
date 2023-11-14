@@ -6,12 +6,13 @@
 /*   By: mburakow <mburakow@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/13 18:39:41 by mburakow          #+#    #+#             */
-/*   Updated: 2023/11/14 20:00:27 by mburakow         ###   ########.fr       */
+/*   Updated: 2023/11/15 00:21:45 by mburakow         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "includes/ft_printf.h"
 #include "includes/libft.h"
+#include <stdio.h>
 
 int main(void)
 {
@@ -24,5 +25,16 @@ int main(void)
 	ft_printf("Pituus: %d\n", i);
 	i = ft_printf("Iso numero: %d\n", 12435);
 	ft_printf("Pituus: %d\n", i);
+	printf ("Printf (stdio) examples:");
+	printf ("Integers: %i %u \n", -3456, 3456);
+	printf ("Characters: %c %c \n", 'z', 80);
+	printf ("Decimals: %d %ld\n", 1997, 32000L);
+	printf ("Some different radices: %d %x %o %#x %#o \n", 100, 100, 100, 100, 100);
+	printf ("floats: %4.2f %+.2e %E \n", 3.14159, 3.14159, 3.14159);
+	printf ("Preceding with empty spaces: %10d \n", 1997);
+	printf ("Preceding with zeros: %010d \n", 1997);
+	printf ("Width: %*d \n", 15, 140);
+	printf ("%s \n", "Educative");
+
 	return (i);
 }
