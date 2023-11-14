@@ -1,22 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_print_char.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mburakow <mburakow@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/13 18:39:41 by mburakow          #+#    #+#             */
-/*   Updated: 2023/11/14 13:00:14 by mburakow         ###   ########.fr       */
+/*   Created: 2023/11/14 13:46:01 by mburakow          #+#    #+#             */
+/*   Updated: 2023/11/14 13:50:30 by mburakow         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "includes/ft_printf.h"
+#include <unistd.h>
 
-int main(void)
+int	ft_print_char(char c)
 {
-	int	i;
+	int ret;
 
-	i = 0;
-	i = ft_printf("Nakkikeittoa %d kolme (%d) markkaa %d senttia.", 22, 3, 50);
-	return (i);
+	ret = write(fd, &c, 1);
+	return (ret);
 }

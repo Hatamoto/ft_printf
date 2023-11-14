@@ -6,7 +6,7 @@
 /*   By: mburakow <mburakow@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/13 15:30:18 by mburakow          #+#    #+#             */
-/*   Updated: 2023/11/13 19:04:13 by mburakow         ###   ########.fr       */
+/*   Updated: 2023/11/14 14:26:26 by mburakow         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,65 +17,51 @@
 // Remove later:
 #include <stdio.h>
 
-static t_print	*ft_init_tab(t_print *tab)
+int	eval_format(const char *inputstr, void *arg)
 {
-	tab->wdt = 0;
-	tab->prc = 0;
-	tab->zero = 0;
-	tab->pnt = 0;
-	tab->dash = 0;
-	tab->tl = 0;
-	tab->sign = 0;
-	tab->is_zero = 0;
-	tab->perc = 0;
-	tab->spc = 0;
-	return (tab);
+	int	ret;
+
+	ret = 0;
+	if (*inputstr == 'c')
+		ret += ft_print_char((int)arg);
+	if (*inputstr == 's')
+		ret += ft_print_string((int)arg);
+	if (*inputstr == 'p')
+		ret += ft_print_addr((int)arg);
+	if (*inputstr == 'd')
+		ret += ft_print_int((int)arg);
+	if (*inputstr == 'i')
+		ret += ft_print_bint((int)arg);
+	if (*inputstr == 'u')
+		ret += ft_print_uint((int)arg);
+	if (*inputstr == 'x')
+		ret += ft_print_hex((int)arg);
+	if (*inputstr == 'X')
+		ret += ft_print_bhex((int)arg);
+	return (ret);
 }
 
-static int	ft_eval_formstr(t_print *tab, const char *formstr, int i)
+int ft_printf(const char *inputstr, ...)
 {
-	int		retval;
-	char	*fspecs;
+	unsigned int	i;
+	va_list			args;
 
-	retval = 0;
-	fspecs = "udcsupxX%";
-	tab->spc = 1;
-	while (!ft_strchr(fspecs, formstr[i]))
+	i = 0;
+	va_start(args, inputstr);
+	while (*inputstr != '\0')
 	{
-		// Here go the tags
-		i++;
-	}
-	if (formstr[i] == 's')
-		printf("<str>");
-	if (formstr[i] == 'd')
-		printf("<int>");
-	if (formstr[i] == 'i')
-		printf("<int>");
-	return (retval);
-}
-
-int ft_printf(const char *formstr, ...)
-{
-	int		i;
-	int		retval;
-	t_print	*tab;
-
-	tab = (t_print *)malloc(sizeof(t_print));
-	if (!tab)
-		return (-1);
-	ft_init_tab(tab);
-	va_start(tab->args, formstr);
-	i = -1;
-	retval = 0;
-	while (formstr[i++])
-	{
-		if (formstr[i] == '%')
-			i = ft_eval_formstr(tab, formstr, i + 1);
+		if (*inputstr == '%')
+		{
+			inputstr++;
+			if (ft_strchr("cspdiuxX", *inputstr))
+				i += eval_format(inputstr, va_arg(args, void *));
+			else if (*inputstr == '%')
+				i += ft_print_char('%'); 
+		}
 		else
-			retval += write(1, &formstr[i], 1);
+			i += ft_print_char(*inputstr);
+		inputstr++;
 	}
-	va_end(tab->args);
-	retval += tab->tl;
-	free (tab);
-	return (retval);
+	va_end(args);
+	return (i);
 }
