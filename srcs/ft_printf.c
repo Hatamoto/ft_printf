@@ -6,7 +6,7 @@
 /*   By: mburakow <mburakow@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/13 15:30:18 by mburakow          #+#    #+#             */
-/*   Updated: 2023/11/14 15:33:59 by mburakow         ###   ########.fr       */
+/*   Updated: 2023/11/14 22:16:15 by mburakow         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,8 +34,8 @@ int	eval_format(const char *inputstr, void *arg)
 	//	ret += ft_print_bint((void *)arg);
 	//if (*inputstr == 'u')
 	//	ret += ft_print_uint((void *)arg);
-	//if (*inputstr == 'x')
-	//	ret += ft_print_hex((void *)arg);
+	if (*inputstr == 'x')
+		ret += ft_print_hex((void *)arg);
 	//if (*inputstr == 'X')
 	//	ret += ft_print_bhex((void *)arg);
 	return (ret);
