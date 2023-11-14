@@ -1,21 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_print_char.c                                    :+:      :+:    :+:   */
+/*   ft_print_string.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mburakow <mburakow@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/14 13:46:01 by mburakow          #+#    #+#             */
-/*   Updated: 2023/11/14 16:59:22 by mburakow         ###   ########.fr       */
+/*   Created: 2023/11/14 16:59:53 by mburakow          #+#    #+#             */
+/*   Updated: 2023/11/14 17:02:42 by mburakow         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
 
-int	ft_print_char(char c)
+int	ft_print_string(char *str)
 {
 	int ret;
 
-	ret = write(1, &c, 1);
+	ret = 0;
+	while (*str)
+	{
+		ret += write(1, &str, 1);
+		str++;
+	}
 	return (ret);
 }

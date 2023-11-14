@@ -6,7 +6,7 @@
 /*   By: mburakow <mburakow@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/13 15:30:18 by mburakow          #+#    #+#             */
-/*   Updated: 2023/11/14 14:26:26 by mburakow         ###   ########.fr       */
+/*   Updated: 2023/11/14 15:33:59 by mburakow         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,21 +23,21 @@ int	eval_format(const char *inputstr, void *arg)
 
 	ret = 0;
 	if (*inputstr == 'c')
-		ret += ft_print_char((int)arg);
+		ret += ft_print_char((char)arg);
 	if (*inputstr == 's')
-		ret += ft_print_string((int)arg);
-	if (*inputstr == 'p')
-		ret += ft_print_addr((int)arg);
+		ret += ft_print_string((char *)arg);
+	//if (*inputstr == 'p')
+	//	ret += ft_print_addr((void *)arg);
 	if (*inputstr == 'd')
 		ret += ft_print_int((int)arg);
-	if (*inputstr == 'i')
-		ret += ft_print_bint((int)arg);
-	if (*inputstr == 'u')
-		ret += ft_print_uint((int)arg);
-	if (*inputstr == 'x')
-		ret += ft_print_hex((int)arg);
-	if (*inputstr == 'X')
-		ret += ft_print_bhex((int)arg);
+	//if (*inputstr == 'i')
+	//	ret += ft_print_bint((void *)arg);
+	//if (*inputstr == 'u')
+	//	ret += ft_print_uint((void *)arg);
+	//if (*inputstr == 'x')
+	//	ret += ft_print_hex((void *)arg);
+	//if (*inputstr == 'X')
+	//	ret += ft_print_bhex((void *)arg);
 	return (ret);
 }
 

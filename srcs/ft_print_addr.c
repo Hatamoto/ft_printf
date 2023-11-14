@@ -1,21 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_print_char.c                                    :+:      :+:    :+:   */
+/*   ft_print_addr.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mburakow <mburakow@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/14 13:46:01 by mburakow          #+#    #+#             */
-/*   Updated: 2023/11/14 16:59:22 by mburakow         ###   ########.fr       */
+/*   Created: 2023/11/14 15:35:16 by mburakow          #+#    #+#             */
+/*   Updated: 2023/11/14 16:58:15 by mburakow         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
+// temp
+#include <stdio.h>
 
-int	ft_print_char(char c)
+int	ft_print_addr(void *addr)
 {
 	int ret;
 
-	ret = write(1, &c, 1);
+	// temp
+	printf("%p", addr);
+	ret = 8;
 	return (ret);
 }

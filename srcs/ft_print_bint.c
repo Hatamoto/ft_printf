@@ -1,21 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_print_char.c                                    :+:      :+:    :+:   */
+/*   ft_print_bint.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mburakow <mburakow@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/14 13:46:01 by mburakow          #+#    #+#             */
-/*   Updated: 2023/11/14 16:59:22 by mburakow         ###   ########.fr       */
+/*   Created: 2023/11/14 17:13:42 by mburakow          #+#    #+#             */
+/*   Updated: 2023/11/14 17:15:44 by mburakow         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
 
-int	ft_print_char(char c)
+int	ft_print_bint(int num)
 {
 	int ret;
 
-	ret = write(1, &c, 1);
+	ret = write(1, &num, 1);
 	return (ret);
 }
