@@ -6,7 +6,7 @@
 #    By: mburakow <mburakow@student.hive.fi>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/10/28 20:09:48 by mburakow          #+#    #+#              #
-#    Updated: 2023/11/14 15:39:41 by mburakow         ###   ########.fr        #
+#    Updated: 2023/11/15 11:29:40 by mburakow         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,8 +25,8 @@ SRC_DIR 	= srcs/
 OBJ_DIR		= objs/	
 
 SOURCES	= 	ft_printf.c			ft_print_addr.c		ft_print_char.c	\
-			ft_print_string.c	ft_print_bhex.c		ft_print_hex.c	\
-			ft_print_uint.c		ft_print_bint.c		ft_print_int.c	
+			ft_print_string.c	ft_print_hex.c		ft_print_uint.c	\
+			ft_print_bint.c		ft_print_int.c	
 
 OBJECTS 	= $(patsubst %.c, %.o, $(SOURCES))
 
