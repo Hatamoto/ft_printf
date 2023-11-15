@@ -10,9 +10,9 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
 #include "ft_printf.h"
 #include <stdio.h>
+#include <unistd.h>
 
 /*
 int	count_int_len(int dec)

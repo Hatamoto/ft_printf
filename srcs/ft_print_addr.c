@@ -16,7 +16,7 @@
 
 int	ft_print_addr(void *addr)
 {
-	int ret;
+	int	ret;
 
 	// temp
 	printf("%p", addr);

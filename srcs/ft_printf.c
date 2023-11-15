@@ -10,10 +10,10 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "ft_printf.h"
+#include "libft.h"
 #include <stdlib.h>
 #include <unistd.h>
-#include "libft.h"
-#include "ft_printf.h"
 // Remove later:
 #include <stdio.h>
 
@@ -26,22 +26,22 @@ int	eval_format(const char *inputstr, va_list args)
 		ret += ft_print_char(va_arg(args, int));
 	if (*inputstr == 's')
 		ret += ft_print_string(va_arg(args, char *));
-	//if (*inputstr == 'p')
+	// if (*inputstr == 'p')
 	//	ret += ft_print_addr((void *)arg);
 	if (*inputstr == 'd')
 		ret += ft_print_int(va_arg(args, int));
-	//if (*inputstr == 'i')
+	// if (*inputstr == 'i')
 	//	ret += ft_print_bint((void *)arg);
-	//if (*inputstr == 'u')
+	// if (*inputstr == 'u')
 	//	ret += ft_print_uint((void *)arg);
 	if (*inputstr == 'x' || *inputstr == 'X')
 		ret += ft_print_hex(va_arg(args, int), *inputstr);
-	//if (*inputstr == 'X')
+	// if (*inputstr == 'X')
 	//	ret += ft_print_bhex((void *)arg);
 	return (ret);
 }
 
-int ft_printf(const char *inputstr, ...)
+int	ft_printf(const char *inputstr, ...)
 {
 	unsigned int	i;
 	va_list			args;
@@ -56,7 +56,7 @@ int ft_printf(const char *inputstr, ...)
 			if (ft_strchr("cspdiuxX", *inputstr))
 				i += eval_format(inputstr, args);
 			else if (*inputstr == '%')
-				i += ft_print_char('%'); 
+				i += ft_print_char('%');
 		}
 		else
 			i += ft_print_char(*inputstr);

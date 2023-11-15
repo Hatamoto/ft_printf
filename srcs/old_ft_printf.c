@@ -10,10 +10,10 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "ft_printf.h"
+#include "libft.h"
 #include <stdlib.h>
 #include <unistd.h>
-#include "libft.h"
-#include "ft_printf.h"
 // Remove later:
 #include <stdio.h>
 
@@ -37,12 +37,11 @@ int	ft_eval_format(const char *formstr, va_list *args, int i)
 {
 	char	*fspecs;
 	int		retval;
-	char 	c;
+	char	c;
 
 	c = 36;
 	fspecs = "udcsupxX%";
 	retval = va_arg(*args, int);
-
 	while (!(ft_strchr(fspecs, formstr[i])))
 	{
 		retval += write(1, &c, 1);
@@ -51,14 +50,14 @@ int	ft_eval_format(const char *formstr, va_list *args, int i)
 	return (retval);
 }
 
-int ft_printf(const char *formstr, ...)
+int	ft_printf(const char *formstr, ...)
 {
 	int		i;
 	int		retval;
 	va_list	args;
 
 	if (!formstr || *formstr == '\0')
-	   return (0);	
+		return (0);
 	va_start(args, formstr);
 	printf("VA1: %s\n", va_arg(args, char *));
 	i = 0;

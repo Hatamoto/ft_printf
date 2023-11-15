@@ -14,7 +14,7 @@
 
 int	ft_print_uint(unsigned int num)
 {
-	int ret;
+	int	ret;
 
 	ret = write(1, &num, 1);
 	return (ret);

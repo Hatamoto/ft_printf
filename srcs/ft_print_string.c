@@ -14,7 +14,7 @@
 
 int	ft_print_string(char *str)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	while (str[i])
