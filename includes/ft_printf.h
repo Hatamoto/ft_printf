@@ -6,7 +6,7 @@
 /*   By: mburakow <mburakow@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/13 14:46:00 by mburakow          #+#    #+#             */
-/*   Updated: 2023/11/15 20:21:04 by mburakow         ###   ########.fr       */
+/*   Updated: 2023/11/15 20:52:00 by mburakow         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ typedef struct s_print
 int			ft_printf(const char *formstr, ...);
 int			ft_print_char(char c);
 int			ft_print_string(char *str);
-// int	ft_print_addr((void *)arg);
+int			ft_print_addr(void *ptr);
 int			ft_print_int(int dec);
 int			ft_print_uint(unsigned int num);
 int			ft_print_hex(int num, const char format);

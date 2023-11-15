@@ -6,7 +6,7 @@
 /*   By: mburakow <mburakow@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/13 18:39:41 by mburakow          #+#    #+#             */
-/*   Updated: 2023/11/15 20:38:12 by mburakow         ###   ########.fr       */
+/*   Updated: 2023/11/15 21:14:37 by mburakow         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,11 @@ int	main(void)
 	u = 1274643;
 	i = ft_printf("Unsigned: %u\n", u);
 	ft_printf("Pituus: %d\n", i);
-	i = ft_printf("%s\n", NULL);
+	i = ft_printf("Nullistringi: %s\n", NULL);
+	ft_printf("Pituus: %d\n", i);
+	i = ft_printf("Pointterin osoite heksana: %p\n", ost);
+	ft_printf("Pituus: %d\n", i);
+	i = printf("Pointterin osoite heksana: %p\n", ost);
 	ft_printf("Pituus: %d\n", i);
 	printf("======================================\n");
 	printf("Printf (stdio) examples:\n");

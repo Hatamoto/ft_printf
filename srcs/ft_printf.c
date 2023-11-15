@@ -6,7 +6,7 @@
 /*   By: mburakow <mburakow@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/13 15:30:18 by mburakow          #+#    #+#             */
-/*   Updated: 2023/11/15 20:22:40 by mburakow         ###   ########.fr       */
+/*   Updated: 2023/11/15 21:13:44 by mburakow         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,8 +24,8 @@ int	eval_format(const char *inputstr, va_list args)
 		ret += ft_print_char(va_arg(args, int));
 	if (*inputstr == 's')
 		ret += ft_print_string(va_arg(args, char *));
-	// if (*inputstr == 'p')
-	//	ret += ft_print_addr((void *)arg);
+	if (*inputstr == 'p')
+		ret += ft_print_addr(va_arg(args, void *));
 	if (*inputstr == 'd' || *inputstr == 'i')
 		ret += ft_print_int(va_arg(args, int));
 	if (*inputstr == 'u')

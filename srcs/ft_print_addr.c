@@ -6,20 +6,41 @@
 /*   By: mburakow <mburakow@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/14 15:35:16 by mburakow          #+#    #+#             */
-/*   Updated: 2023/11/14 16:58:15 by mburakow         ###   ########.fr       */
+/*   Updated: 2023/11/15 21:38:53 by mburakow         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
-// temp
-#include <stdio.h>
+#include "ft_printf.h"
 
-int	ft_print_addr(void *addr)
+static int	ft_put_addr(unsigned long long addr)
+{
+	int ret;
+
+	ret = 0;
+	if (addr >= 16)
+	{
+		ret += ft_put_addr(addr / 16);
+		ret += ft_put_addr(addr % 16);
+	}
+	else 
+	{
+		if (addr <= 9)
+			ret += ft_print_char(addr + '0');
+		else
+			ret += ft_print_char(addr - 10 + 'a');
+	}
+	return (ret);
+}
+
+int	ft_print_addr(void *ptr)
 {
 	int	ret;
 
-	// temp
-	printf("%p", addr);
-	ret = 8;
+	ret = 0;
+	if (ptr == NULL)
+		return (write(1, "(null)", 6));
+	ret += write(1, "0x", 2);
+	ret += ft_put_addr((unsigned long long)ptr);
 	return (ret);
 }

@@ -6,7 +6,7 @@
 /*   By: mburakow <mburakow@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/14 13:46:01 by mburakow          #+#    #+#             */
-/*   Updated: 2023/11/14 16:59:22 by mburakow         ###   ########.fr       */
+/*   Updated: 2023/11/15 21:11:53 by mburakow         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,5 @@
 
 int	ft_print_char(char c)
 {
-	int	ret;
-
-	ret = write(1, &c, 1);
-	return (ret);
+	return (write(1, &c, 1));
 }
