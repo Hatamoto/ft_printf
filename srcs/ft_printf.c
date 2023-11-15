@@ -6,7 +6,7 @@
 /*   By: mburakow <mburakow@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/13 15:30:18 by mburakow          #+#    #+#             */
-/*   Updated: 2023/11/15 08:59:02 by mburakow         ###   ########.fr       */
+/*   Updated: 2023/11/15 12:16:11 by mburakow         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,6 @@
 #include "libft.h"
 #include <stdlib.h>
 #include <unistd.h>
-// Remove later:
-#include <stdio.h>
 
 int	eval_format(const char *inputstr, va_list args)
 {
