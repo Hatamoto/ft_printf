@@ -6,7 +6,7 @@
 /*   By: mburakow <mburakow@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/13 18:39:41 by mburakow          #+#    #+#             */
-/*   Updated: 2023/11/15 00:21:45 by mburakow         ###   ########.fr       */
+/*   Updated: 2023/11/15 09:56:31 by mburakow         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,10 @@ int main(void)
 	ft_printf("Pituus: %d\n", i);
 	i = ft_printf("Iso numero: %d\n", 12435);
 	ft_printf("Pituus: %d\n", i);
+	i = ft_printf("Numero 12345 heksana: %x\n", 12345);
+	ft_printf("Pituus: %d\n", i);
 	printf ("Printf (stdio) examples:");
+	printf ("Number 12345 as hex: %x\n", 12345);
 	printf ("Integers: %i %u \n", -3456, 3456);
 	printf ("Characters: %c %c \n", 'z', 80);
 	printf ("Decimals: %d %ld\n", 1997, 32000L);
