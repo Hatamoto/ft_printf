@@ -6,56 +6,47 @@
 #    By: mburakow <mburakow@student.hive.fi>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/10/28 20:09:48 by mburakow          #+#    #+#              #
-#    Updated: 2023/11/14 21:13:36 by mburakow         ###   ########.fr        #
+#    Updated: 2023/11/15 11:29:40 by mburakow         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME 		=	libftprintf.a
+NAME 		= libftprintf.a
 
-CC 			=	gcc 
+CC 			= gcc 
 
-CFLAGS 		=	-Wall -Wextra -Werror -I
+CFLAGS 		= -Wall -Wextra -Werror -I
 
-LIBFT 		=	libft.a
+LIBFT_PATH 	= ./libft
 
-LIBFT_DIR 	=	./libft/
+LIBFT 		= libft.a
 
-SRC_DIR 	=	./srcs/
+SRC_DIR 	= srcs/
 
-OBJ_DIR		=	./objs/	
+OBJ_DIR		= objs/	
 
-INC_DIR		=	./includes/
+SOURCES	= 	ft_printf.c			ft_print_addr.c		ft_print_char.c	\
+			ft_print_string.c	ft_print_hex.c		ft_print_uint.c	\
+			ft_print_bint.c		ft_print_int.c	
 
-SRC			= 	ft_printf			ft_print_addr		ft_print_char	\
-				ft_print_string		ft_print_bhex		ft_print_hex	\
-				ft_print_uint		ft_print_bint		ft_print_int		
+OBJECTS 	= $(patsubst %.c, %.o, $(SOURCES))
 
-SRCS		=	$(addprefix $(SRC_DIR), $(addsuffix .c, $(SRC)))
-
-OBJS		=	$(addprefix $(OBJ_DIR), $(addsuffix .o, $(SRC)))
-
-INCLUDES	= 	./includes/
+INCLUDES 	= includes
 
 all : $(NAME)
 
-%.c : $(SRCS)
-
-$(NAME) : $(OBJS)
-	make -C $(LIBFT_DIR) all
-	cp ./libft/libft.a .
+$(NAME) : $(OBJECTS)
+	make -C $(LIBFT_PATH) all
+	cp libft/libft.a .
 	mv libft.a $(NAME)
-	ar -crs $(NAME) $(OBJS)
+	ar -crs $(NAME) $(OBJECTS)
 
-$(OBJ_DIR) :
-	mkdir -p $(OBJ_DIR)
-
-%.o: %.c
+$(OBJ_DIR)%.o : $(SRC_DIR)%.c
 	$(CC) $(CFLAGS) $(INCLUDES) -c $< -o $@
 	ar -crs $(NAME) $@ 
 
 clean : 
-	rm -rf $(OBJS)
-	make clean -C $(LIBFT_DIR)
+	rm -rf $(OBJ_DIR)
+	make clean -C $(LIBFT_PATH)
 
 fclean : clean 
 	rm -f $(NAME)

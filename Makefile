@@ -6,52 +6,50 @@
 #    By: mburakow <mburakow@student.hive.fi>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/10/28 20:09:48 by mburakow          #+#    #+#              #
-#    Updated: 2023/11/15 11:29:40 by mburakow         ###   ########.fr        #
+#    Updated: 2023/11/15 17:06:55 by mburakow         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME 		= libftprintf.a
+NAME			=	libftprintf.a
 
-CC 			= gcc 
+CC				=	gcc
+CFLAGS			=	-Wall -Wextra -Werror -I
+SRC_DIR			= 	srcs
+INCLUDE			= 	includes
+SRCS			= 	ft_printf.c			ft_print_addr.c		ft_print_char.c	\
+					ft_print_string.c	ft_print_hex.c		ft_print_uint.c	\
+					ft_print_bint.c		ft_print_int.c
+OBJ_DIR			=	objs
+OBJS			=	$(SRCS:%.c=$(OBJ_DIR)/%.o)
+LIBFT_DIR		=	./libft
+LIBFT			=	$(LIBFT_DIR)/libft.a
 
-CFLAGS 		= -Wall -Wextra -Werror -I
+$(OBJ_DIR)/%.o:		$(SRC_DIR)/%.c
+					$(CC) $(CFLAGS) $(INCLUDE) -c $< -o $@
 
-LIBFT_PATH 	= ./libft
+all:				$(NAME)
 
-LIBFT 		= libft.a
+bonus:				all
 
-SRC_DIR 	= srcs/
+$(NAME):			$(LIBFT) $(OBJ_DIR) $(OBJS)
+					cp	$(LIBFT) $(NAME)
+					ar -crs $(NAME) $(OBJS)
 
-OBJ_DIR		= objs/	
+$(LIBFT):
+					make -C $(LIBFT_DIR) all
 
-SOURCES	= 	ft_printf.c			ft_print_addr.c		ft_print_char.c	\
-			ft_print_string.c	ft_print_hex.c		ft_print_uint.c	\
-			ft_print_bint.c		ft_print_int.c	
+$(OBJ_DIR):
+					mkdir -p $(OBJ_DIR)
 
-OBJECTS 	= $(patsubst %.c, %.o, $(SOURCES))
+clean:
+					make -C $(LIBFT_DIR) clean
+					rm -rf $(OBJ_DIR)
 
-INCLUDES 	= includes
+fclean:				clean
+					make -C $(LIBFT_DIR) fclean
+					rm -f $(NAME)
+					rm -f $(LIBFT)
 
-all : $(NAME)
+re:					fclean all
 
-$(NAME) : $(OBJECTS)
-	make -C $(LIBFT_PATH) all
-	cp libft/libft.a .
-	mv libft.a $(NAME)
-	ar -crs $(NAME) $(OBJECTS)
-
-$(OBJ_DIR)%.o : $(SRC_DIR)%.c
-	$(CC) $(CFLAGS) $(INCLUDES) -c $< -o $@
-	ar -crs $(NAME) $@ 
-
-clean : 
-	rm -rf $(OBJ_DIR)
-	make clean -C $(LIBFT_PATH)
-
-fclean : clean 
-	rm -f $(NAME)
-	rm -f $(LIBFT)
-
-re : fclean all
-
-.PHONY : all clean fclean re
+.PHONY:				all bonus clean fclean re libft
