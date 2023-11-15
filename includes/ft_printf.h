@@ -6,7 +6,7 @@
 /*   By: mburakow <mburakow@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/13 14:46:00 by mburakow          #+#    #+#             */
-/*   Updated: 2023/11/15 12:11:20 by mburakow         ###   ########.fr       */
+/*   Updated: 2023/11/15 20:21:04 by mburakow         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,9 +35,7 @@ int			ft_print_char(char c);
 int			ft_print_string(char *str);
 // int	ft_print_addr((void *)arg);
 int			ft_print_int(int dec);
-// int	ft_print_bint((void *)arg);
-// int	ft_print_uint((void *)arg);
+int			ft_print_uint(unsigned int num);
 int			ft_print_hex(int num, const char format);
-// int	ft_print_bhex((void *)arg);
 
 #endif

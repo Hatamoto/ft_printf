@@ -6,7 +6,7 @@
 /*   By: mburakow <mburakow@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/13 18:39:41 by mburakow          #+#    #+#             */
-/*   Updated: 2023/11/15 09:56:31 by mburakow         ###   ########.fr       */
+/*   Updated: 2023/11/15 20:25:01 by mburakow         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,9 @@
 
 int	main(void)
 {
-	int		i;
-	char	*ost;
+	int				i;
+	unsigned int	u;
+	char			*ost;
 
 	i = 0;
 	ost = "OSTA";
@@ -28,7 +29,11 @@ int	main(void)
 	ft_printf("Pituus: %d\n", i);
 	i = ft_printf("Numero 12345 heksana: %x\n", 12345);
 	ft_printf("Pituus: %d\n", i);
-	printf("Printf (stdio) examples:");
+	u = 1274643;
+	i = ft_printf("Unsigned: %u\n", u);
+	ft_printf("Pituus: %d\n", i);
+	printf("======================================\n");
+	printf("Printf (stdio) examples:\n");
 	printf("Number 12345 as hex: %x\n", 12345);
 	printf("Integers: %i %u \n", -3456, 3456);
 	printf("Characters: %c %c \n", 'z', 80);
