@@ -6,7 +6,7 @@
 /*   By: mburakow <mburakow@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/14 16:27:55 by mburakow          #+#    #+#             */
-/*   Updated: 2023/11/14 19:19:14 by mburakow         ###   ########.fr       */
+/*   Updated: 2023/11/15 17:10:13 by mburakow         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,8 +62,6 @@ int	ft_print_int(int dec)
 		ret += ft_print_int(dec % 10);
 	}
 	else
-	{
 		ret += ft_print_char(dec + 48);
-	}
 	return (ret);
 }
