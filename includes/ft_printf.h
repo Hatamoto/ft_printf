@@ -6,7 +6,7 @@
 /*   By: mburakow <mburakow@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/13 14:46:00 by mburakow          #+#    #+#             */
-/*   Updated: 2023/11/15 09:06:06 by mburakow         ###   ########.fr       */
+/*   Updated: 2023/11/15 11:35:58 by mburakow         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,6 @@
 # define LIBFTPRINTF_H
 
 #include <stdarg.h>
-
-#define hex "123456789abcdef"
-#define HEX "123456789ABCDEF"
 
 typedef struct s_print
 {
