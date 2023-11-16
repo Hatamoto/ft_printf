@@ -6,7 +6,7 @@
 /*   By: mburakow <mburakow@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/13 18:39:41 by mburakow          #+#    #+#             */
-/*   Updated: 2023/11/15 21:14:37 by mburakow         ###   ########.fr       */
+/*   Updated: 2023/11/16 10:55:30 by mburakow         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,10 @@ int	main(void)
 	ft_printf("Pituus: %d\n", i);
 	i = printf("Pointterin osoite heksana: %p\n", ost);
 	ft_printf("Pituus: %d\n", i);
+	i = ft_printf("Zero addrs: %p \n", NULL, NULL);
+	ft_printf("Pituus: %d\n", i);
 	printf("======================================\n");
+	printf("Zero addrs: %p \n", NULL, NULL);
 	printf("Printf (stdio) examples:\n");
 	printf("Number 12345 as hex: %x\n", 12345);
 	printf("Integers: %i %u \n", -3456, 3456);

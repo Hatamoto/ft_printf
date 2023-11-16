@@ -10,12 +10,12 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
 #include "ft_printf.h"
+#include <unistd.h>
 
-int ft_print_uint(unsigned int num) 
+int	ft_print_uint(unsigned int num)
 {
-	int ret;
+	int	ret;
 
 	ret = 0;
 	if (num > 9)
