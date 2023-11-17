@@ -6,7 +6,7 @@
 /*   By: mburakow <mburakow@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/13 14:46:00 by mburakow          #+#    #+#             */
-/*   Updated: 2023/11/15 20:52:00 by mburakow         ###   ########.fr       */
+/*   Updated: 2023/11/16 12:56:00 by mburakow         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 # define FT_PRINTF_H
 
 # include <stdarg.h>
+# include "../libft/libft.h"
 
 typedef struct s_print
 {

@@ -6,12 +6,11 @@
 /*   By: mburakow <mburakow@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/13 15:30:18 by mburakow          #+#    #+#             */
-/*   Updated: 2023/11/15 21:13:44 by mburakow         ###   ########.fr       */
+/*   Updated: 2023/11/16 13:02:16 by mburakow         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
-#include "libft.h"
 #include <stdlib.h>
 #include <unistd.h>
 

@@ -6,7 +6,7 @@
 /*   By: mburakow <mburakow@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/14 15:35:16 by mburakow          #+#    #+#             */
-/*   Updated: 2023/11/16 11:03:03 by mburakow         ###   ########.fr       */
+/*   Updated: 2023/11/16 11:09:44 by mburakow         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,8 +38,6 @@ int	ft_print_addr(void *ptr)
 	int	ret;
 
 	ret = 0;
-	//if (ptr == NULL)
-	//	return (write(1, "(null)", 6));
 	ret += write(1, "0x", 2);
 	ret += ft_put_addr((unsigned long long)ptr);
 	return (ret);

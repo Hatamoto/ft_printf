@@ -6,37 +6,13 @@
 /*   By: mburakow <mburakow@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/14 16:27:55 by mburakow          #+#    #+#             */
-/*   Updated: 2023/11/15 17:10:13 by mburakow         ###   ########.fr       */
+/*   Updated: 2023/11/16 13:26:26 by mburakow         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 #include <stdio.h>
 #include <unistd.h>
-
-/*
-int	count_int_len(int dec)
-{
-	int	ret;
-
-	ret = 0;
-	if (dec == -2147483648)
-		return (11);
-	if (dec == 0)
-		return (1);
-	else if (dec < 0)
-	{
-		dec *= -1;
-		ret++;
-	}
-	while (dec >= 1)
-	{
-		dec /= 10;
-		ret++;
-	}
-	return (ret);
-}
-*/
 
 int	ft_print_int(int dec)
 {
