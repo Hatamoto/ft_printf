@@ -6,7 +6,7 @@
 /*   By: mburakow <mburakow@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/13 15:30:18 by mburakow          #+#    #+#             */
-/*   Updated: 2023/11/16 13:02:16 by mburakow         ###   ########.fr       */
+/*   Updated: 2023/11/17 14:01:39 by mburakow         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,8 @@ int	ft_printf(const char *inputstr, ...)
 	{
 		if (*inputstr == '%')
 		{
+			if (*inputstr == '%' && *(inputstr + 1) == '\0')
+				break ;
 			inputstr++;
 			if (ft_strchr("cspdiuxX", *inputstr))
 				i += eval_format(inputstr, args);

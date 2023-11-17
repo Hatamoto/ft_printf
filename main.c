@@ -6,12 +6,11 @@
 /*   By: mburakow <mburakow@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/13 18:39:41 by mburakow          #+#    #+#             */
-/*   Updated: 2023/11/16 10:55:30 by mburakow         ###   ########.fr       */
+/*   Updated: 2023/11/17 14:02:10 by mburakow         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "includes/ft_printf.h"
-#include "includes/libft.h"
 #include <stdio.h>
 
 int	main(void)
@@ -22,6 +21,8 @@ int	main(void)
 
 	i = 0;
 	ost = "OSTA";
+	ft_printf("Str (%s) %i in %", ost, 1);
+	ost = "OSTA KAIKKI";
 	i = ft_printf("Nakkikeittoa %s kolme (%d) dollaria (%c)  %d senttia.\n",
 			ost, 3, '$', 50);
 	ft_printf("Pituus: %d\n", i);
@@ -40,6 +41,12 @@ int	main(void)
 	ft_printf("Pituus: %d\n", i);
 	i = ft_printf("Zero addrs: %p \n", NULL, NULL);
 	ft_printf("Pituus: %d\n", i);
+	ost = "ft_printf";
+	ft_printf("Stringi (%s), joka loppuu %i prosenttiin %", ost, 1);
+	//ft_printf("\n");
+	ost = "printf";
+	//printf("Stringi (%s), joka loppuu %i prosenttiin %", ost, 1);
+	//printf("\n");
 	printf("======================================\n");
 	printf("Zero addrs: %p \n", NULL, NULL);
 	printf("Printf (stdio) examples:\n");
